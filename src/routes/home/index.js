@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import CurrentLocation from './Map';
+import { Link1 } from 'preact-fluid';
 const mapStyles = {
   width: '100%',
   height: '100%'
@@ -76,15 +77,15 @@ export class Home extends Component {
     } catch (error) {
       this.state.markers = [ // Just an example this should probably be in your state or props. 
         {
-          name: "marker1",
+          name: "Prking Lot1",
           position: { lat:54.33666843424961,lng: 10.122042618360124 }
         },
         {
-          name: "marker2",
+          name: "Prking Lot2",
           position: { lat:54.3236877956612,lng: 10.120146467496845 }
         },
         {
-          name: "marker3",
+          name: "Prking Lot3",
           position: { lat:54.321251147910694, lng:10.12785028619348 }
         }
       ];
@@ -104,7 +105,7 @@ export class Home extends Component {
         key={index} // Need to be unique
         onClick={this.onMarkerClick}
         name={marker.name}
-        position={{ lat:54.321251147910694, lng:10.12785028619348}}
+        position={marker.position}
       />
     ))}
         <Marker onClick={this.onMarkerClick} name={'Current Location'} />
@@ -122,7 +123,8 @@ export class Home extends Component {
             <FontAwesomeIcon icon={faStar} />
             <FontAwesomeIcon icon={faStar} />
             <h4>{this.state.selectedPlace.name}</h4>
-            <button onClick={this.handleClick}>Book</button>
+            
+            <a href="https://www.w3schools.com/">Book this parking space</a>
           </div>
         </InfoWindow>
         

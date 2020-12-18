@@ -4,6 +4,8 @@ import { Hexagon } from 'tiled-hexagons';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button'
+import { Link } from 'preact-router/match';
 import './style';
 class Mainpage extends React.Component {
     
@@ -11,23 +13,32 @@ class Mainpage extends React.Component {
       return ( 
       
        
-            <Container>
-  <Row className="justify-content-md-center">
-    <Col xs lg="2">
-      1 of 3
-    </Col>
-    <Col md="auto"> <Hexagon
-     
-     sideLength={40}
-     text="Hi"
-     textStyle={{ fill: 'blue' }}
-   /></Col>
-    <Col xs lg="2">
-      3 of 3
-    </Col>
-  </Row>
+            <div>
+              <div><div class="frame">
+    <div class="hex-outer h1"></div>
+    <div class="hex-outer h2"></div>
+    <div class="hex-outer h3"></div>
+    <div class="hex-inner h1"></div>
+    <div class="hex-inner h2"></div>
+    <div class="hex-inner h3"></div>
+    <div class="label"><Link style={{fontSize:'50px', color:'white' }} href="/home"><h3>Find</h3></Link></div>
+    
+  </div></div>
+              
+          <div> <div class="frame">
+    <div class="hex-outer h1"></div>
+    <div class="hex-outer h2"></div>
+    <div class="hex-outer h3"></div>
+    <div class="hex-inner h1"></div>
+    <div class="hex-inner h2"></div>
+    <div class="hex-inner h3"></div>
+    <div class="label"><Link style={{fontSize:'50px', color:'white' }} href="/home"><h3>Find</h3></Link></div>
+    
+  </div></div>
+ 
   
-</Container>
+  
+</div>
      
        
      )
