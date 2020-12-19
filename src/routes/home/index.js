@@ -17,7 +17,7 @@ export class Home extends Component {
     persons: [],
     markers :[]
   }
-
+ 
   componentDidMount() {
     axios.get("http://116.203.95.95:1234/api/spottroup/parentdevice/")
       .then(res => {
@@ -32,10 +32,10 @@ export class Home extends Component {
         // }
       })
   }
-
+  i=0;
   constructor(props) {
     super(props);
-  
+ 
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -43,15 +43,28 @@ export class Home extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
+    selectedplaceid:{},
+    selectedplacename:{},
     value: 0
   };
-
+ nameid=0;
   onMarkerClick = (props, marker, e) =>
+  {
+   
+   //console.log('marker:..'+marker.id);
+   this.nameid = props.name.split("/");
+   console.log('props:..'+this.nameid);
     this.setState({
       selectedPlace: props,
+      selectedplacename: this.nameid[0],
+      selectedplaceid : this.nameid[1],
       activeMarker: marker,
       showingInfoWindow: true
+     
     });
+
+  }
+ 
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -68,9 +81,10 @@ export class Home extends Component {
     try {
       console.log(this.state.persons.length);
       for (let index = 0; index < this.state.persons.length; index++) {
+        this.state.markers[index].id = this.state.persons[index].id;
         this.state.markers[index].name = this.state.persons[index].areaname;
         this.state.markers[index].position = {lat:parseFloat(this.state.persons[index].latitude),lng: parseFloat(this.state.persons[index].longitude)}
-        
+        this.state.markers[index].avaiable = parseFloat(this.state.persons[index].blognumber) - parseFloat(this.state.persons[index].totalavailable);
       }
       console.log(this.state.markers);
       console.log(this.state.persons);
@@ -104,8 +118,9 @@ export class Home extends Component {
       <Marker
         key={index} // Need to be unique
         onClick={this.onMarkerClick}
-        name={marker.name}
+        name={marker.name+'/'+marker.id}
         position={marker.position}
+        icon= {                   marker.avaiable>0 ?          {url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png" }  :     { url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"               }     }
       />
     ))}
         <Marker onClick={this.onMarkerClick} name={'Current Location'} />
@@ -124,7 +139,8 @@ export class Home extends Component {
             <FontAwesomeIcon icon={faStar} />
             <h4>{this.state.selectedPlace.name}</h4>
             
-            <a href="https://www.w3schools.com/">Book this parking space</a>
+
+            <a href='/profile/'>Book this parking space</a>
           </div>
         </InfoWindow>
         
