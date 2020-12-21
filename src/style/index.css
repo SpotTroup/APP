@@ -74,11 +74,12 @@ html, body {
   
   .label{
 	position: absolute;
+	text-align: center;
 	color: #ABF8FF;
 	font-weight: bold;
-	font-size: 160px;
-	left: 59px;
-	top: 36px;
+	font-size: 300px;
+	left: 80px;
+	top: 130px;
 	  transition: all .4s;
 	-webkit-transition: all .4s;
   }

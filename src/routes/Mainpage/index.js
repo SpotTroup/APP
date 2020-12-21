@@ -64,7 +64,7 @@ const HomepageHeading = ({ mobile }) => (
     <div class="hex-inner h1"></div>
     <div class="hex-inner h2"></div>
     <div class="hex-inner h3"></div>
-    <div class="label"><Link style={{fontSize:'1000px', color:'white' }} href="/home"><h3>Find</h3></Link></div>
+    <div class="label"><Link style={{ color:'white' }} href="/home"><h1>Find</h1></Link></div>
     
   </div>
   </Container>
@@ -82,7 +82,7 @@ class DesktopContainer extends Component {
   state = {}
 
   hideFixedMenu = () => this.setState({ fixed: false })
-  showFixedMenu = () => this.setState({ fixed: true })
+  showFixedMenu = () => this.setState({ fixed: false })
 
   render() {
     const { children } = this.props
@@ -98,7 +98,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
+            style={{ minHeight: 700, width: '100%' }}
             vertical
           >
             <Menu
@@ -175,7 +175,7 @@ class MobileContainer extends Component {
             <Segment
               inverted
               textAlign='center'
-              style={{ minHeight: 350, padding: '1em 0em' }}
+              style={{ minHeight: 350, padding: '1em 0em' , width: '100%'}}
               vertical
             >
               <Container>
@@ -249,7 +249,7 @@ const Mainpage = () => (
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column textAlign='center'>
+          <Grid.Column style={{textAlign:'center'}} >
             <Button size='huge'>Check Them Out</Button>
           </Grid.Column>
         </Grid.Row>
@@ -258,7 +258,7 @@ const Mainpage = () => (
 
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
+        <Grid.Row style={{textAlign:'center'}}>
           <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
             <Header as='h3' style={{ fontSize: '2em' }}>
               "What a Company"
