@@ -60,8 +60,12 @@ const Profile = ({ user }) => {
 		  });
 	  } catch (error) {
 		setFormData({
-			name: 'blog',
+			name: 'blogid',
 			value: event.value,
+		  },
+		  {
+			name: 'classname',
+			value: event.classname,
 		  });
 	  }
 	}
@@ -82,8 +86,9 @@ const Profile = ({ user }) => {
 		console.log(blog );
 		for (let index = 0; index < blog.length; index++) {
 			this.options[index].id = blog[index].id;
-			this.options[index].value = blog[index].;
+			this.options[index].value = blog[index].id;
 			this.options[index].lebel = 'Blog'+index;
+			this.options[index].classname = blog[index].classname;
 			
 		  }
         // for (let index = 0; index < this.state.persons.length; index++) {
