@@ -29,7 +29,7 @@ const Profile = ({ user }) => {
 	  },
 	  {
 		name: 'parentdeviceid',
-		value: '',
+		value: user,
 	  });
   console.log(formData);
   axios({
@@ -73,7 +73,7 @@ const Profile = ({ user }) => {
 		{ value: 'vanilla', label: 'Vanilla' }
 	  ]
 	useEffect(() => {
-		axios.get("http://116.203.95.95:1234/api/spottroup/parentdevice/")
+		axios.get("http://116.203.95.95:1234/api/spottroup/blog/")
       .then(res => {
 		const 
 		blog = res.data;
@@ -81,10 +81,10 @@ const Profile = ({ user }) => {
         console.log("persons:...." );
 		console.log(blog );
 		for (let index = 0; index < blog.length; index++) {
-			this.options[index].id = this.state.persons[index].id;
-			this.state.markers[index].value = this.state.persons[index].areaname;
-			this.state.markers[index].lebel = {lat:parseFloat(this.state.persons[index].latitude),lng: parseFloat(this.state.persons[index].longitude)}
-			this.state.markers[index].avaiable = parseFloat(this.state.persons[index].blognumber) - parseFloat(this.state.persons[index].totalavailable);
+			this.options[index].id = blog[index].id;
+			this.options[index].value = blog[index].;
+			this.options[index].lebel = 'Blog'+index;
+			
 		  }
         // for (let index = 0; index < this.state.persons.length; index++) {
         //   this.state.markers[index].name = this.state.persons[index].areaname;
