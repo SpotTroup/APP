@@ -2,7 +2,7 @@ import { h } from 'preact';
 import {useEffect, useState} from "preact/hooks";
 import React, { useReducer } from 'react';
 import style from './style.css';
-
+import axios from 'axios';
 import { Button } from 'semantic-ui-react'
 import Select from 'react-select'
 const formReducer = (state, event) => {
@@ -71,26 +71,29 @@ const Profile = ({ user }) => {
 	}
 	const [time, setTime] = useState(Date.now());
 	const [count, setCount] = useState(10);
-	const options = [
-		{ value: 'chocolate', label: 'Chocolate' },
-		{ value: 'strawberry', label: 'Strawberry'},
-		{ value: 'vanilla', label: 'Vanilla' }
-	  ]
+	const [options, setoptions] = useState([{ value: 'chocolate', label: 'Chocolate',id:'' },
+	{ value: 'strawberry', label: 'Strawberry',id:''},
+	{ value: 'vanilla', label: 'Vanilla',id:'' }]);
+	 
 	useEffect(() => {
-		axios.get("http://116.203.95.95:1234/api/spottroup/blog/")
+
+		axios.get("http://116.203.95.95:1234/api/spottroup/findbyparentdeviceid/"+user)
       .then(res => {
-		const 
+		const
 		blog = res.data;
-       
-        console.log("persons:...." );
+       options=res.data;
+        console.log("persons:...."+user );
 		console.log(blog );
+		console.log(options );
 		for (let index = 0; index < blog.length; index++) {
-			this.options[index].id = blog[index].id;
-			this.options[index].value = blog[index].id;
-			this.options[index].lebel = 'Blog'+index;
-			this.options[index].classname = blog[index].classname;
+			options[index].id = blog[index].id;
+			options[index].value = blog[index].id;
+			options[index].lebel = 'Blog'+index;
+			options[index].classname = blog[index].classname;
 			
 		  }
+		  console.log(options );
+		  setoptions(options);
         // for (let index = 0; index < this.state.persons.length; index++) {
         //   this.state.markers[index].name = this.state.persons[index].areaname;
         //   this.state.markers[index].position = {lat:parseFloat(this.state.persons[index].latitude),lng: parseFloat(this.state.persons[index].longitude)}

@@ -140,7 +140,7 @@ export class Home extends Component {
             <h4>{this.state.selectedPlace.name}</h4>
             
 
-            <a href='/profile/'>Book this parking space</a>
+            <a href={'/profile/'+  this.state.selectedplaceid}>Book this parking space</a>
           </div>
         </InfoWindow>
         
