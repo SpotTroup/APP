@@ -1,18 +1,130 @@
-```
-/*     ___   _____      ___    _________  _________   ______      ___     _    _   ____
- *    / __| | ___  \   /   \   |__    __| |__    __| |  __   \   / _ \   | |  | | |  _  \
- *   / /    | |__| |  / _   \     |  |       |  |    | |__|  |  / / \ \  | |  | | | |_|  |
- *   \ \    |  ___ / |  | |  |    |  |       |  |    |    __/  | |   | | | |  | | |  ___/
- *    \ \   | |      |  | |  |    |  |       |  |    | |\ \    | |   | | | |  | | | |
- *     \ \  | |      |  |_|  |    |  |       |  |    | | \ \   | |   | | | |  | | | |
- *   __/ /  | |       \     /     |  |       |  |    | |  \ \   \ \_/  /  \ \_/ / | |
- *  |___/   |_|        \___/      |__|       |__|    |_|   \_\   \___/     \___/  |_|
- *  ---------------------------------------------------------------------------------------
- *      Parkingspace sharing for everyone -- CO² reduction -- eastsee cleaning 
- * ----------------------------------------------------------------------------------------
- */
-```
+<h1 align="center"> GitPoint </h1> <br>
+<p align="center">
+  <a href="https://gitpoint.co/">
+    <img alt="GitPoint" title="GitPoint" src="http://i.imgur.com/VShxJHs.png" width="450">
+  </a>
+</p>
 
+<p align="center">
+  GitHub in your pocket. Built with React Native.
+</p>
+
+<p align="center">
+  <a href="https://itunes.apple.com/us/app/gitpoint/id1251245162?mt=8">
+    <img alt="Download on the App Store" title="App Store" src="http://i.imgur.com/0n2zqHD.png" width="140">
+  </a>
+
+<a href="https://play.google.com/store/apps/details?id=com.gitpoint">
+<img alt="Get it on Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" width="140">
+</a>
+
+</p>
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Feedback](#feedback)
+- [Contributors](#contributors)
+- [Build Process](#build-process)
+- [Backers](#backers-)
+- [Sponsors](#sponsors-)
+- [Acknowledgments](#acknowledgments)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Introduction
+
+[![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
+[![Coveralls](https://img.shields.io/coveralls/github/gitpoint/git-point.svg?style=flat-square)](https://coveralls.io/github/gitpoint/git-point)
+[![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+[![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
+
+View repository and user information, control your notifications and even manage your issues and pull requests. Built with React Native, GitPoint is one of the most feature-rich unofficial GitHub clients that is 100% free.
+
+**Available for both iOS and Android.**
+
+<p align="center">
+  <img src = "http://i.imgur.com/HowF6aM.png" width=350>
+</p>
+
+## Features
+
+A few of the things you can do with GitPoint:
+
+* View user activity feed
+* Communicate on your issue and pull request conversations
+* Close or lock issues
+* Apply labels and assignees
+* Review and merge pull requests
+* Create new issues
+* Star, watch and fork repositories
+* Control your unread and participating notifications
+* Easily search for any user or repository
+
+<p align="center">
+  <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
+</p>
+
+<p align="center">
+  <img src = "http://i.imgur.com/0iorG20.png" width=700>
+</p>
+
+## Feedback
+
+Feel free to send us feedback on [Twitter](https://twitter.com/gitpointapp) or [file an issue](https://github.com/gitpoint/git-point/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
+
+If there's anything you'd like to chat about, please feel free to join our [Gitter chat](https://gitter.im/git-point)!
+
+## Contributors
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
+
+## Build Process
+
+- Follow the [React Native Guide](https://facebook.github.io/react-native/docs/getting-started.html) for getting started building a project with native code. **A Mac is required if you wish to develop for iOS.**
+- Clone or download the repo
+- `yarn` to install dependencies
+- `yarn run link` to link react-native dependencies
+- `yarn start:ios` to start the packager and run the app in the iOS simulator (`yarn start:ios:logger` will boot the application with [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+- `yarn start:android` to start the packager and run the app in the the Android device/emulator (`yarn start:android:logger` will boot the application with [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+
+Please take a look at the [contributing guidelines](./CONTRIBUTING.md) for a detailed process on how to build your application as well as troubleshooting information.
+
+**Development Keys**: The `CLIENT_ID` and `CLIENT_SECRET` in `api/index.js` are for development purposes and do not represent the actual application keys. Feel free to use them or use a new set of keys by creating an [OAuth application](https://github.com/settings/applications/new) of your own. Set the "Authorization callback URL" to `gitpoint://welcome`.
+
+## Backers [![Backers on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#backers)
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/git-point#backer)]
+
+<a href="https://opencollective.com/git-point#backers" target="_blank"><img src="https://opencollective.com/git-point/backers.svg?width=890"></a>
+
+## Sponsors [![Sponsors on Open Collective](https://opencollective.com/git-point/sponsors/badge.svg)](#sponsors)
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/git-point#sponsor)]
+
+<a href="https://opencollective.com/git-point/sponsor/0/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/1/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/2/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/3/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/4/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/5/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/6/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/7/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/8/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/git-point/sponsor/9/website" target="_blank"><img src="https://opencollective.com/git-point/sponsor/9/avatar.svg"></a>
+
+## Acknowledgments
+
+Thanks to [JetBrains](https://www.jetbrains.com) for supporting us with a [free Open Source License](https://www.jetbrains.com/buy/opensource).
+
+# blog
 
 ## CLI Commands
 
@@ -26,208 +138,20 @@ npm run dev
 # build for production with minification
 npm run build
 
-# test the production build locally
-npm run serve
-
-# run tests with jest and enzyme
+# run tests with jest and preact-render-spy
 npm run test
 ```
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
 
-
-# Style Guideline:
-
-## individual CSS:
-
-Tags in /src/style/tag_index.css
-
-Classes /src/components/< Folder >/class_index.css  like main bootstrap infos
-
-IDs in the /src/routes/< Folder >/ id_foldername.css
-
-## bootstrap:
-
-Javascript code in /src/stlye/js/*
-
-css code in /src/style/css/*
-
-**Important:** Primarly use the bootstrap framework
-
-https://getbootstrap.com/docs/5.0/getting-started/introduction/
-
-# HTML with Preact (htm)
-
-This description for html is very similar.
-
-"[HTM](https://github.com/developit/htm) is a JSX-like syntax that works in standard JavaScript. Instead of requiring a build step, it uses JavaScript's own [Tagged Templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) syntax, which was added in 2015 and is supported in [all modern browsers](https://caniuse.com/#feat=template-literals). This is an increasingly popular way to write Preact apps, since there are fewer moving parts to understand than a traditional front-end build tooling setup." - from https://preactjs.com/guide/v10/getting-started
-
-More Informations: https://github.com/developit/htm
-
-
-
-# Preact Code:
-
-h(): ""The `h()` function is used to turn JSX into a structure Preact understands.But it can also be used directly without any JSX involved"" - homepage preact
-
-render()
-
-# Bibliothec & Add-ons:
-
-[LINK] https://preactjs.com/about/libraries-addons/
-
-# Dev-Dependencies:":
-
-### "enzyme":"^3.11.0":
-
-
-[Summary]: Enzyme is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
-
-Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.
-
-[LINK] https://www.npmjs.com/package/enzyme
-
-### "enzyme-adapter-preact-pure": "^2.2.3",
-
-This is an adapter to support using the [Enzyme](https://airbnb.io/enzyme/) UI component testing library with [Preact](https://preactjs.com/). For documentation, please see [the testing guide on the PreactJS website](https://preactjs.com/guide/v10/unit-testing-with-enzyme).
-
-[LINK] https://www.npmjs.com/package/enzyme-adapter-preact-pure
-
-### "eslint": "^7.16.0",
-
-[Summary] ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. In many ways, it is similar to JSLint and JSHint with a few exceptions:
-
-[LINK] https://www.npmjs.com/package/eslint
-
-
-### "eslint-config-preact": "^1.1.3",
-
-
-[Summary] An unopinionated baseline ESLint configuration for Preact and Preact CLI codebases.
-
-[LINK] https://www.npmjs.com/package/eslint-config-preact
-
-### "jest": "^26.6.3",
-
-
-[Summary] Delightful JavaScript Testing
-
-[LINK] https://www.npmjs.com/package/jest
-
-### "jest-preset-preact": "^4.0.2",
-
-
-[Summary] Jest preset containing all required configuration for writing tests for [preact](https://github.com/preactjs/preact).
-
-[LINK] https://www.npmjs.com/package/jest-preset-preact
-
-### "preact-cli": "^3.0.5",
-
-
-[Summary] Start building a Preact Progressive Web App in seconds.
-
-[LINK] https://www.npmjs.com/search?q=preact-cli
-
-### "preact-material-components": "^1.6.1",
-
-
-[Summary] preact components for [material-components-web](https://material.io/develop/web)
-
-[LINK] https://www.npmjs.com/package/preact-material-components
-
-### "sirv-cli": "1.0.10"
-
-
-[Summary] Quickly start a server to preview the assets of *any* directory!
-
-[LINK] https://www.npmjs.com/package/sirv-cli
-
-
-# Dependencies:
-
-### "axios": "^0.21.0",
-
-
-[Summary] Promise based HTTP client for the browser and node.js
-
-[LINK] https://www.npmjs.com/package/axios
-
-### "bootstrap": "^4.5.3",
-
-
-[Summary] The most popular front-end framework for developing responsive, mobile first projects on the web.
-
-[LINK] https://www.npmjs.com/package/bootstrap
-
-### "google-maps-react": "^2.0.6",
-
-
-[Summary]
-
-[LINK]
-
-### "preact": "^10.5.7",
-
-
-[Summary] **All the power of Virtual DOM components, without the overhea**
-
-[LINK] https://www.npmjs.com/package/preact
-
-### "preact-fluid": "^0.9.1", - 2 years old
-
-
-[Summary] Minimal **UI Kit** for Preact, with reusable components.
-
-[LINK] https://npmjs.com/package/preact-fluid
-
-### "preact-render-to-string": "^5.1.12",
-
-
-[Summary] Render JSX and [Preact](https://github.com/developit/preact) components to an HTML string.
-
-[LINK] https://www.npmjs.com/package/preact-render-to-string
-
-### "preact-router": "^3.2.1",
-
-
-[Summary] Connect your [Preact](https://github.com/developit/preact) components up to that address bar.
-
-[LINK] https://www.npmjs.com/package/preact-router
-
-### "react-geocode": "^0.2.2",
-
-
-[Summary] A module to transform a description of a location (i.e. street address, town name, etc.) into geographic coordinates (i.e. latitude and longitude) and vice versa. Not based on react
-
-[LINK] https://www.npmjs.com/package/react-geocode
-
-### "react-rating": "^2.0.5",  deprecated by bootstrap 
-
-
-[Summary] React Rating is a [react](https://github.com/facebook/react) rating component which supports custom symbols both with [inline styles](https://facebook.github.io/react/tips/inline-styles.html) and glyphicons found in popular CSS Toolkits like [Fontawesome](http://fortawesome.github.io/Font-Awesome/icons/) or [Bootstrap](http://getbootstrap.com/components/).
-
-[LINK] https://www.npmjs.com/package/react-rating
-
-### "tiled-hexagons": "^1.0.2",
-
-
-[Summary] `tiled-hexagons` is a simple React button component set to help you render one or more multiple tessellated hexagon buttons
-
-[LINK] https://www.npmjs.com/package/tiled-hexagons
-
-### "redux zero" :
-
-
-[Summary] A lightweight state container based on Redux
-
-[LINK] https://www.npmjs.com/package/redux-zero
-
-
-### "bit.dev " :
-
-
-[Summary]
-
-[LINK]
-
-[Bit](https://bit.dev/) ([Github](https://github.com/teambit/bit)) lets you easily “harvest” components from any codebase and share them to a collection (a sort-of modular library) in [bit.dev](https://bit.dev/). -> https://bit.dev/
+### How to setup Netlify CMS
+
+- Deploy on netlify using the CLI or the Netlify bot for [github](https://app.netlify.com/start).
+- Enable Git gateway https://docs.netlify.com/visitor-access/git-gateway/.
+- Enable Identity for your app https://docs.netlify.com/visitor-access/identity/.
+- For most Blogs, change (Identity > Settings > Registration preferences) to invite only.
+- Invite yourself to the Identity tab in Netlify console.
+- Accept the invite from you mail.
+- Done 👍🏻.
+
+*Note:* Go to `https://<your-domain>/admin` in order to access Netlify CMS.
