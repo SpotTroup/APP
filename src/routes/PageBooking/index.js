@@ -69,7 +69,6 @@ const Profile = ({ user }) => {
 		  });
 	  }
 	}
-	
 	const [time, setTime] = useState(Date.now());
 	const [count, setCount] = useState(10);
 	const [options, setoptions] = useState([{ value: 'chocolate', label: 'Chocolate',id:'' },
@@ -82,7 +81,7 @@ const Profile = ({ user }) => {
       .then(res => {
 		const
 		blog = res.data;
-       //=res.data;
+       options=res.data;
         console.log("persons:...."+user );
 		console.log(blog );
 		console.log(options );
