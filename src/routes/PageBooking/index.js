@@ -1,3 +1,41 @@
+//=========================================================================================
+//                        ____              _  _____
+//                       / ___| _ __   ___ | ||_   _| __ ___  _   _ _ __
+//                       \___ \| '_ \ / _ \| __|| || '__/ _ \| | | | '_ \
+//                        ___) | |_) | (_) | |_ | || | | (_) | |_| | |_) |
+//                       |____/| .__/ \___/ \__||_||_|  \___/ \__,_| .__/
+//                             |_|                                 |_|
+// create with figlet 
+//
+// Name: index.js 
+// Comments: JS file for PageBooking
+// Author: Tjark Ziehm
+// Version: 0.01
+// Date: 25.Dez. 2020
+// CoWorkers:
+//=========================================================================================
+
+/*
+* TODO: 
+
+*/
+
+//=========================================================================================
+// Structure 
+//=========================================================================================
+
+/**
+* Index
+* @class S
+* @constructor 
+* @extends 
+* @functions
+* @useEffect to prevend window undefind errors
+* @return
+*/
+
+//=========================================================================================
+
 import { h } from 'preact';
 import {useEffect, useState} from "preact/hooks";
 import React, { useReducer } from 'react';
@@ -5,6 +43,12 @@ import style from './style.css';
 import axios from 'axios';
 import { Button } from 'semantic-ui-react'
 import Select from 'react-select'
+
+import '../../css/bootstrap';
+import '../../js/bootstrap';
+import style from './style.css';
+
+
 const formReducer = (state, event) => {
 	return {
 	  ...state,
@@ -12,7 +56,7 @@ const formReducer = (state, event) => {
 	}
    }
 // Note: `user` comes from the URL, courtesy of our router
-const Profile = ({ user }) => {
+const PageBooking = ({ user }) => {
 	const [formData, setFormData] = useReducer(formReducer, {});
 	const [submitting, setSubmitting] = useState(false);
   
@@ -123,4 +167,4 @@ const Profile = ({ user }) => {
 	);
 }
 
-export default Profile;
+export default PageBooking;

@@ -1,3 +1,42 @@
+//=========================================================================================
+//                        ____              _  _____
+//                       / ___| _ __   ___ | ||_   _| __ ___  _   _ _ __
+//                       \___ \| '_ \ / _ \| __|| || '__/ _ \| | | | '_ \
+//                        ___) | |_) | (_) | |_ | || | | (_) | |_| | |_) |
+//                       |____/| .__/ \___/ \__||_||_|  \___/ \__,_| .__/
+//                             |_|                                 |_|
+// create with figlet 
+//
+// Name: index.js 
+// Comments: JS file for AppMap
+// Author: Tjark Ziehm
+// Version: 0.01
+// Date: 25.Dez. 2020
+// CoWorkers:
+//=========================================================================================
+
+/*
+* TODO: 
+
+*/
+
+//=========================================================================================
+// Structure 
+//=========================================================================================
+
+/**
+* Index
+* @class S
+* @constructor 
+* @extends 
+* @functions
+* @useEffect to prevend window undefind errors
+* @return
+*/
+
+//=========================================================================================
+
+
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Rating from '@material-ui/lab/Rating';
@@ -8,11 +47,19 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import CurrentLocation from './Map';
 import { Link1 } from 'preact-fluid';
+
+import '../../css/bootstrap';
+import '../../js/bootstrap';
+import style from './style.css';
+
+
+
+
 const mapStyles = {
   width: '100%',
   height: '100%'
 };
-export class Home extends Component {
+export class AppMap extends Component {
   state = {
     persons: [],
     markers :[]
