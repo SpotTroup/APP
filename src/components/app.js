@@ -4,9 +4,9 @@ import { Router } from 'preact-router';
 import Header from './header';
 
 // Code-splitting is automated for `routes` directory
-import Home from '../routes/home';
-import Profile from '../routes/profile';
-import Mainpage from '../routes/Mainpage';
+import Home from '../routes/AppMap';
+import Profile from '../routes/PageBooking';
+import Mainpage from '../routes/PageHome';
 
 const App = () => (
 	<div id="app">

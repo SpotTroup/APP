@@ -12,7 +12,7 @@ const formReducer = (state, event) => {
 	}
    }
 // Note: `user` comes from the URL, courtesy of our router
-const Profile = ({ user }) => {
+const SignIn = ({ user }) => {
 	const [formData, setFormData] = useReducer(formReducer, {});
 	const [submitting, setSubmitting] = useState(false);
   
@@ -73,7 +73,7 @@ const Profile = ({ user }) => {
 			name: 'parentdeviceid',
 			value: user,
 		  });
-	     console.log(formData);
+	  console.log(formData);
 		  console.log(formData);
 	  }
 	}
@@ -130,4 +130,4 @@ const Profile = ({ user }) => {
 	);
 }
 
-export default Profile;
+export default SignIn;
