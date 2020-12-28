@@ -73,7 +73,26 @@ const HomepageHeading = ({ mobile }) => (
 HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 }
+function LoginButton(props) {
+  return (
+    <Menu.Item position='right'>
+    <Button as='a' inverted={!fixed}>
+    <Link  href="/signin">Log In</Link>
+    </Button>
+    <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+    <Link  href="/signup">Sign Up</Link>
+    </Button>
+  </Menu.Item>
+  );
+}
 
+function LogoutButton(props) {
+  return (
+    <button onClick={props.onClick}>
+      Logout
+    </button>
+  );
+}
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
@@ -115,14 +134,7 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a'>Work</Menu.Item>
                 <Menu.Item as='a'>Company</Menu.Item>
                 <Menu.Item as='a'>Careers</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
+               
               </Container>
             </Menu>
             <HomepageHeading />

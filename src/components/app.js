@@ -7,6 +7,8 @@ import Header from './header';
 import Home from '../routes/AppMap';
 import Profile from '../routes/PageBooking';
 import Mainpage from '../routes/PageHome';
+import SignUp from '../routes/PageSignup';
+import SignIn from '../routes/PageSignin';
 
 const App = () => (
 	<div id="app">
@@ -16,6 +18,8 @@ const App = () => (
 			<Home path = "/home"/>
 			<Profile path="/profile/" user="me" />
 			<Profile path="/profile/:user" />
+			<SignUp path="/signup" />
+			<SignIn path="/signin" />
 		</Router>
 		
 	</div>

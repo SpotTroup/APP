@@ -5,7 +5,7 @@ import React, { useReducer } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import style from './style.css';
 import axios from 'axios';
-import { Button } from 'semantic-ui-react'
+
 import Select from 'react-select'
 const formReducer = (state, event) => {
 	return {
@@ -24,7 +24,7 @@ const SignUp = ({ user }) => {
 	  
   axios({
     method: 'post',
-    url: 'http://116.203.95.95:1234/signup',
+    url: 'http://116.203.95.95:3000/signup',
     data: formData,
    
     })
@@ -43,8 +43,8 @@ const SignUp = ({ user }) => {
   
 	const handleChange = event => {
 		setFormData({
-			name: event.name,
-			value: event.value,
+      name: event.target.name,
+			value: event.target.value,
 		  });
 		 
 		  console.log(formData);
@@ -63,27 +63,28 @@ const SignUp = ({ user }) => {
 		<div class={style.profile}>
 		
 
-  <form onSubmit={handleSubmit}>
-  <Select name="blog" options={blog} onChange={handleChange}/>
-  <label for="meeting-time">Choose a date and time for your appointment:</label>
-
-  <input type="datetime-local" id="birthdaytime" name="parkingtime" onChange={handleChange}></input>
-	   <label for="quantity">Choose booked time :</label>
-  <input type="number" id="quantity" name="parkingduration" min="1" max="5" onChange={handleChange}></input>
-  <br/>
   
-  <Button>Click Here</Button>
-  <input type="submit"/>
-</form>
 
-<Form>
+<Form onSubmit={handleSubmit}>
     <Form.Field>
-      <label>First Name</label>
-      <input placeholder='First Name' />
+      <label>User Name</label>
+      <input placeholder='username' name="username" onChange={handleChange}/>
     </Form.Field>
     <Form.Field>
-      <label>Last Name</label>
-      <input placeholder='Last Name' />
+      <label>Email</label>
+      <input placeholder='Email' name="email"  onChange={handleChange}/>
+    </Form.Field>
+    <Form.Field>
+      <label>Password</label>
+      <input placeholder='Password' name="password" onChange={handleChange}/>
+    </Form.Field>
+    <Form.Field>
+      <label>Phone Number</label>
+      <input placeholder='Phonenumber' name="phonenumber" onChange={handleChange}/>
+    </Form.Field>
+    <Form.Field>
+      <label>Address</label>
+      <input placeholder='Address' name="address" onChange={handleChange}/>
     </Form.Field>
     <Form.Field>
       <Checkbox label='I agree to the Terms and Conditions' />
