@@ -2,7 +2,9 @@ import { h } from 'preact';
 import {useEffect, useState} from "preact/hooks";
 import React, { useReducer } from 'react';
 import style from './style.css';
+import { route } from 'preact-router';
 import axios from 'axios';
+import {  Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import Select from 'react-select'
 const formReducer = (state, event) => {
@@ -13,6 +15,7 @@ const formReducer = (state, event) => {
    }
 // Note: `user` comes from the URL, courtesy of our router
 const SignIn = ({ user }) => {
+	
 	const [formData, setFormData] = useReducer(formReducer, {});
 	const [submitting, setSubmitting] = useState(false);
   
@@ -22,13 +25,16 @@ const SignIn = ({ user }) => {
 	  
   axios({
     method: 'post',
-	url: 'http://116.203.95.95:3000/signin',
+	url: 'http://116.203.95.95:3000/login',
     data: formData,
    
     })
     .then(function (response) {
         //handle success
-        console.log(response);
+		console.log(response);
+		
+localStorage.setItem('JWT_TOKEN', response.data.user);
+		window.location = '/';
     })
     .catch(function (response) {
         //handle error
@@ -56,12 +62,18 @@ const SignIn = ({ user }) => {
 
      
 	}, []);
-
+	
 	return (
-		<div class={style.profile}>
 		
+		<Grid  style={{ height: '100vh',textAlign:'center' }} verticalAlign='middle' centered>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2'style={{color:'teal', textAlign:'center'}} >
+        <Image src='/logo.png' /> Log-in to your account
+      </Header>
+      <Form size='large' onSubmit={handleSubmit}>
+        <Segment stacked>
 
-		<Form onSubmit={handleSubmit}>
+		
    
     <Form.Field>
       <label>Email</label>
@@ -69,16 +81,28 @@ const SignIn = ({ user }) => {
     </Form.Field>
     <Form.Field>
       <label>Password</label>
-      <input placeholder='Password' name="password" onChange={handleChange}/>
+      <input fluid
+            icon='lock'
+            iconPosition='left'
+            placeholder='Password'
+            type='password' name="password" onChange={handleChange}/>
     </Form.Field>
    
    
-    <Button type='submit'>Submit</Button>
-  </Form>
+    
+	<Button type='submit' color='teal' fluid size='large'>
+            Login
+          </Button>
+        </Segment>
+      </Form>
+      <Message style={{ textAlign:'center' }}>
+        New to us? <a href='/signup'>Sign Up</a>
+      </Message>
+    </Grid.Column>
+  </Grid>
 
 
-
-		</div>
+	
 	);
 }
 

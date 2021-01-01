@@ -4,6 +4,7 @@ import React, { useReducer } from 'react';
 import style from './style.css';
 import axios from 'axios';
 import { Button } from 'semantic-ui-react'
+import { Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import Select from 'react-select'
 const formReducer = (state, event) => {
 	return {
@@ -28,7 +29,9 @@ const Profile = ({ user }) => {
     })
     .then(function (response) {
         //handle success
-        console.log(response);
+		console.log(response);
+		
+		window.location = '/';
     })
     .catch(function (response) {
         //handle error
@@ -65,7 +68,7 @@ const Profile = ({ user }) => {
 		  setFormData(
 		  {
 			name: 'userid',
-			value: '1122',
+			value: localStorage.getItem('JWT_TOKEN'),
 		  });
 		  console.log(formData);
 		  setFormData(
@@ -110,23 +113,36 @@ const Profile = ({ user }) => {
 	}, []);
 
 	return (
-		<div class={style.profile}>
-		
-
-  <form onSubmit={handleSubmit}>
+		<Grid  style={{ height: '100vh',textAlign:'center' }} verticalAlign='middle' centered>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2'style={{color:'teal', textAlign:'center'}} >
+        <Image src='/logo.png' /> Please give us booking details
+      </Header>
+      <Form size='large' onSubmit={handleSubmit}>
+        <Segment stacked>
+		<Form.Field>
+      <label>Select Blog</label>
   <Select name="blog" options={blog} onChange={handleChange}/>
-  <label for="meeting-time">Choose a date and time for your appointment:</label>
+  </Form.Field>
+  <Form.Field>
+      
+  <label for="meeting-time">Choose a date and time for your booking:</label>
 
   <input type="datetime-local" id="birthdaytime" name="parkingtime" onChange={handleChange}></input>
+  </Form.Field>
+  <Form.Field>
+     
 	   <label for="quantity">Choose booked time :</label>
-  <input type="number" id="quantity" name="parkingduration" min="1" max="5" onChange={handleChange}></input>
-  <br/>
-  <Button>Click Here</Button>
-  <input type="submit"/>
-</form>
-
-
-		</div>
+  <input type="number" id="quantity" name="parkingduration" min="15" max="120" onChange={handleChange}></input>
+  </Form.Field>
+  <Button type='submit' color='teal' fluid size='large' style={{}}>
+            Book
+          </Button>
+        </Segment>
+      </Form>
+     
+    </Grid.Column>
+  </Grid>
 	);
 }
 

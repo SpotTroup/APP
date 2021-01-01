@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import {useEffect, useState} from "preact/hooks";
 import React, { useReducer } from 'react';
-
+import {  Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import style from './style.css';
 import axios from 'axios';
@@ -31,6 +31,8 @@ const SignUp = ({ user }) => {
     .then(function (response) {
         //handle success
         console.log(response);
+        localStorage.setItem('JWT_TOKEN', response.data.user);
+		window.location = '/';
     })
     .catch(function (response) {
         //handle error
@@ -60,12 +62,18 @@ const SignUp = ({ user }) => {
 	}, []);
 
 	return (
-		<div class={style.profile}>
+	
 		
 
   
 
-<Form onSubmit={handleSubmit}>
+    <Grid  style={{ height: '100vh',textAlign:'center' }} verticalAlign='middle' centered>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2'style={{color:'teal', textAlign:'center'}} >
+        <Image src='/logo.png' /> Sign-Up  your account
+      </Header>
+      <Form size='large' onSubmit={handleSubmit}>
+        <Segment stacked>
     <Form.Field>
       <label>User Name</label>
       <input placeholder='username' name="username" onChange={handleChange}/>
@@ -89,9 +97,16 @@ const SignUp = ({ user }) => {
     <Form.Field>
       <Checkbox label='I agree to the Terms and Conditions' />
     </Form.Field>
-    <Button type='submit'>Submit</Button>
-  </Form>
-		</div>
+    <Button type='submit' color='teal' fluid size='large'>
+            Sign Up
+          </Button>
+        </Segment>
+      </Form>
+      <Message style={{ textAlign:'center' }}>
+        Already have account? <a href='/signin'>Log in</a>
+      </Message>
+    </Grid.Column>
+  </Grid>
 	);
 }
 

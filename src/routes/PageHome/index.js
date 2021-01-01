@@ -76,10 +76,10 @@ HomepageHeading.propTypes = {
 function LoginButton(props) {
   return (
     <Menu.Item position='right'>
-    <Button as='a' inverted={!fixed}>
+    <Button as='a' >
     <Link  href="/signin">Log In</Link>
     </Button>
-    <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+    <Button as='a'   style={{ marginLeft: '0.5em' }}>
     <Link  href="/signup">Sign Up</Link>
     </Button>
   </Menu.Item>
@@ -88,9 +88,11 @@ function LoginButton(props) {
 
 function LogoutButton(props) {
   return (
-    <button onClick={props.onClick}>
-      Logout
-    </button>
+    <Menu.Item position='right'>
+    <Button as='a' onClick={props.onClick}  style={{ marginLeft: '0.5em' }}>
+   Logout
+    </Button>
+    </Menu.Item>
   );
 }
 /* Heads up!
@@ -99,14 +101,42 @@ function LogoutButton(props) {
  */
 class DesktopContainer extends Component {
   state = {}
+  constructor(props) {
+    super(props);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    let comments = localStorage.getItem('JWT_TOKEN');
+    console.log(comments);
+    if (comments) {
+      this.state = {isLoggedIn: true};
+    } else {
+      this.state = {isLoggedIn: false};
+    }
+    
+  }
+  handleLoginClick() {
+    this.setState({isLoggedIn: true});
+  }
+
+  handleLogoutClick() {
+    localStorage.removeItem("JWT_TOKEN")
+    this.setState({isLoggedIn: false});
+  }
 
   hideFixedMenu = () => this.setState({ fixed: false })
   showFixedMenu = () => this.setState({ fixed: false })
 
   render() {
+
     const { children } = this.props
     const { fixed } = this.state
-
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} />;
+    } else {
+      button = <LoginButton  />;
+    }
     return (
       <Media greaterThan='mobile'>
         <Visibility
@@ -134,7 +164,7 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a'>Work</Menu.Item>
                 <Menu.Item as='a'>Company</Menu.Item>
                 <Menu.Item as='a'>Careers</Menu.Item>
-               
+                {button}
               </Container>
             </Menu>
             <HomepageHeading />

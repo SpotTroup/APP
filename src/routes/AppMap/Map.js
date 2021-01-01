@@ -1,8 +1,10 @@
 
-import { createRef } from 'preact';
+import { createRef , Component} from 'preact';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Home from './index';
+import MyClass from './GlobalState';
+import axios from 'axios';
 const mapStyles = {
   map: {
     position: 'absolute',
@@ -10,8 +12,13 @@ const mapStyles = {
     height: '100%'
   }
 };
+import {store, useGlobalState} from 'state-pool';
 
-export class CurrentLocation extends React.Component {
+
+store.setState("count", 0);
+
+export class CurrentLocation extends Component {
+  
   wrapper = createRef();
     constructor(props) {
         super(props);
@@ -85,9 +92,18 @@ export class CurrentLocation extends React.Component {
               zoom: zoom
             }
           );
-    
+          let { zoomvaldetect, parentdevice ,markers} = this.props;
           // maps.Map() is constructor that instantiates the map
           this.map = new maps.Map(node, mapConfig);
+          this.map.addListener("zoom_changed", () => {
+       
+            MyClass.zoomval = this.map.getZoom();
+            console.log("Zoom: " +MyClass.zoomval);
+           console.log('map...'+ this.props.parentdevice[1].id)
+           this.props.zoomvaldetect;
+           
+
+          });
         }
       }
 
@@ -109,7 +125,7 @@ export class CurrentLocation extends React.Component {
   }
   render() {
     const style = Object.assign({}, mapStyles.map);
-
+    const { zoomvaldetect } = this.props;
     return (
       <div>
         <div style={style} ref={this.wrapper}>
