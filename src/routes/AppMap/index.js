@@ -15,17 +15,20 @@ const mapStyles = {
   height: '100%'
 };
 import { store, useGlobalState } from 'state-pool';
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://116.203.95.95:4001";
 
 
-store.setState("count", 0);
 
 export class Home extends Component {
   _isMounted = false;
   state = {
     parentdevice: [],
     blogs: [],
-    markers: []
+    markers: [],
+    response:''
   }
+  
   zoomvaldetect() {
     console.log("Zoom: " + MyClass.zoomval);
     console.log(this.state.blogs);
@@ -62,6 +65,11 @@ export class Home extends Component {
     this._isMounted = false;
   }
   componentDidMount() {
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("FromAPI", data => {
+      this.state.response = data;
+      console.log('socket'+this.state.response  );
+    });
     this._isMounted = true;
     console.log("Zoom: " + MyClass.zoomval);
 
@@ -165,30 +173,6 @@ export class Home extends Component {
     } catch (error) {
       console.log(error)
       this.state.markers = [ // Just an example this should probably be in your state or props. 
-        {
-          name: "Prking Lot1",
-          position: { lat: 54.33666843424961, lng: 10.122042618360124 }
-        },
-        {
-          name: "Prking Lot2",
-          position: { lat: 54.3236877956612, lng: 10.120146467496845 }
-        },
-        {
-          name: "Prking Lot3",
-          position: { lat: 54.321251147910694, lng: 10.12785028619348 }
-        },
-        {
-          name: "Prking Lot1",
-          position: { lat: 54.33666843424961, lng: 10.122042618360124 }
-        },
-        {
-          name: "Prking Lot2",
-          position: { lat: 54.3236877956612, lng: 10.120146467496845 }
-        },
-        {
-          name: "Prking Lot3",
-          position: { lat: 54.321251147910694, lng: 10.12785028619348 }
-        },
         {
           name: "Prking Lot1",
           position: { lat: 54.33666843424961, lng: 10.122042618360124 }
