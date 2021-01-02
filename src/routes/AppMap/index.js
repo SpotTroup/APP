@@ -16,6 +16,7 @@ const mapStyles = {
 };
 import { store, useGlobalState } from 'state-pool';
 import socketIOClient from "socket.io-client";
+
 const ENDPOINT = "http://116.203.95.95:4001";
 
 
@@ -68,6 +69,8 @@ export class Home extends Component {
     const socket = socketIOClient(ENDPOINT);
     socket.on("FromAPI", data => {
       this.state.response = data;
+      let blogs = data;
+      this.setState(blogs);
       console.log('socket'+this.state.response  );
     });
     this._isMounted = true;
@@ -147,24 +150,34 @@ export class Home extends Component {
     
     try {
       if (MyClass.zoomval > 18) {
-        this.state.markers.length = 20;
+        this.state.markers = [];
         console.log(this.state.blogs.length);
         for (let index = 0; index < this.state.blogs.length; index++) {
+          this.state.markers.push( {
+            name: "Prking Lot1",
+            position: { lat: 54.33666843424961, lng: 10.122042618360124 }
+          })
           console.log(index);
           this.state.markers[index].id = this.state.blogs[index].id;
           this.state.markers[index].name = 'Blog' + index;
           this.state.markers[index].type = 'blog';
           this.state.markers[index].position = { lat: parseFloat(this.state.blogs[index].latitude), lng: parseFloat(this.state.blogs[index].longitude) }
-          this.state.markers[index].avaiable = this.state.blogs[index].avaiable;
+          this.state.markers[index].available = this.state.blogs[index].available;
+          
         }
       } else {
+        this.state.markers = [];
         console.log('in render' + this.state.parentdevice.length);
         for (let index = 0; index < this.state.parentdevice.length; index++) {
+          this.state.markers.push( {
+            name: "Prking Lot1",
+            position: { lat: 54.33666843424961, lng: 10.122042618360124 }
+          })
           this.state.markers[index].id = this.state.parentdevice[index].id;
           this.state.markers[index].name = this.state.parentdevice[index].areaname;
           this.state.markers[index].type = 'parent';
           this.state.markers[index].position = { lat: parseFloat(this.state.parentdevice[index].latitude), lng: parseFloat(this.state.parentdevice[index].longitude) }
-          this.state.markers[index].avaiable = parseFloat(this.state.parentdevice[index].blognumber) - parseFloat(this.state.parentdevice[index].totalavailable);
+          this.state.markers[index].available = parseFloat(this.state.parentdevice[index].blognumber) - parseFloat(this.state.parentdevice[index].totalavailable);
         }
       }
 
@@ -243,7 +256,7 @@ export class Home extends Component {
               onClick={this.onMarkerClick}
               name={marker.name + '/' + marker.id}
               position={marker.position}
-              icon={marker.type == 'parent' ? { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" } : marker.avaiable > 0 ? { url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png" } : { url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png" }}
+              icon={marker.type == 'parent' ? { url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" } : marker.available  ? { url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png" } : { url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png" }}
             />
           ))}
           <Marker onClick={this.onMarkerClick} name={'Current Location'} />
