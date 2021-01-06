@@ -161,7 +161,7 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a' active>
                   Home
                 </Menu.Item>
-                <Menu.Item as='a'>Work</Menu.Item>
+                <Menu.Item as='a'><Link style={{ color:'white' }} href="/addblog"><h1>Buy A Blog</h1></Link></Menu.Item>
                 <Menu.Item as='a'>Company</Menu.Item>
                 <Menu.Item as='a'>Careers</Menu.Item>
                 {button}

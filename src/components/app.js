@@ -9,6 +9,8 @@ import Profile from '../routes/PageBooking';
 import Mainpage from '../routes/PageHome';
 import SignUp from '../routes/PageSignup';
 import SignIn from '../routes/PageSignin';
+import  AddBlog  from '../routes/PageAddBlog';
+
 
 const App = () => (
 	<div id="app">
@@ -20,6 +22,7 @@ const App = () => (
 			<Profile path="/profile/:user" />
 			<SignUp path="/signup" />
 			<SignIn path="/signin" />
+			<AddBlog path='/addblog'/>
 		</Router>
 		
 	</div>
