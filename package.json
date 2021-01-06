@@ -1,0 +1,56 @@
+{
+  "private": true,
+  "name": "app",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "preact build",
+    "build:render": "preact build --prerenderUrls ./prerender-urls.js",
+    "serve": "sirv build --port 8080 --cors --single",
+    "dev": "preact watch",
+    "lint": "eslint src",
+    "test": "jest",
+    "build:css": "tailwind build tailwind.css -o src/style/index.css"
+  },
+  "eslintConfig": {
+    "extends": "preact",
+    "ignorePatterns": [
+      "build/"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9.8.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^2.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-preact": "^1.1.3",
+    "jest": "^26.6.3",
+    "jest-preset-preact": "^4.0.2",
+    "postcss": "^7.0.35",
+    "preact-cli": "^3.0.5",
+    "preact-cli-plugin-netlify": "^1.6.0",
+    "sirv-cli": "1.0.10",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "webpack-bundle-analyzer": "^4.3.0"
+  },
+  "dependencies": {
+    "@emmetio/abbreviation": "^2.2.0",
+    "@preact/prerender-data-provider": "^3.0.1",
+    "@react-google-maps/api": "^2.0.2",
+    "axios": "^0.21.1",
+    "google-maps-react": "^2.0.6",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "preact": "^10.5.9",
+    "preact-render-to-string": "^5.1.12",
+    "preact-router": "^3.2.1"
+  },
+  "jest": {
+    "preset": "jest-preset-preact",
+    "setupFiles": [
+      "<rootDir>/tests/__mocks__/browserMocks.js",
+      "<rootDir>/tests/__mocks__/setupTests.js"
+    ]
+  }
+}
