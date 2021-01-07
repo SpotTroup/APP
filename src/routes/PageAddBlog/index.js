@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import MyClass from './GlobalState';
 import axios from 'axios';
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
+import { Link } from 'preact-router/match';
 import { Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { Link1 } from 'preact-fluid';
 const mapStyles = {
@@ -124,7 +125,7 @@ export class AddBlog extends Component {
 <Grid  style={{ textAlign:'center' , marginTop : 50 }} horizontalAlign='middle' centered>
   <Grid.Row>
   <Grid.Column style={{ maxWidth: 450 , height:450}}>
-<Button>Scan qr code</Button>
+<Button><Link style={{ color:'white' }} href="/qrscan"><h1>Scan Blog</h1></Link></Button>
     <Map
           style={{width: '300px', height: '450px', marginTop:20}}
           onClick={this.onMapClicked}

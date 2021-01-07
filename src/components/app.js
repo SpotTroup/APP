@@ -10,6 +10,7 @@ import Mainpage from '../routes/PageHome';
 import SignUp from '../routes/PageSignup';
 import SignIn from '../routes/PageSignin';
 import  AddBlog  from '../routes/PageAddBlog';
+import QRScan from '../routes/qrcode';
 
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
 			<SignUp path="/signup" />
 			<SignIn path="/signin" />
 			<AddBlog path='/addblog'/>
+			<QRScan path='/qrscan'/>
 		</Router>
 		
 	</div>

@@ -49,7 +49,7 @@ const HomepageHeading = ({ mobile }) => (
     />
     <Header
       as='h2'
-      content='Do whatever you want when you want to.'
+      content='Do whatever mmmm you want when you want to.'
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -183,12 +183,39 @@ DesktopContainer.propTypes = {
 
 class MobileContainer extends Component {
   state = {}
+  constructor(props) {
+    super(props);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    let comments = localStorage.getItem('JWT_TOKEN');
+    console.log(comments);
+    if (comments) {
+      this.state = {isLoggedIn: true};
+    } else {
+      this.state = {isLoggedIn: false};
+    }
+    
+  }
+  handleLoginClick() {
+    this.setState({isLoggedIn: true});
+  }
 
+  handleLogoutClick() {
+    localStorage.removeItem("JWT_TOKEN")
+    this.setState({isLoggedIn: false});
+  }
   handleSidebarHide = () => this.setState({ sidebarOpened: false })
 
   handleToggle = () => this.setState({ sidebarOpened: true })
 
   render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} />;
+    } else {
+      button = <LoginButton  />;
+    }
     const { children } = this.props
     const { sidebarOpened } = this.state
 
@@ -206,7 +233,7 @@ class MobileContainer extends Component {
             <Menu.Item as='a' active>
               Home
             </Menu.Item>
-            <Menu.Item as='a'>Work</Menu.Item>
+            <Menu.Item as='a'><Link style={{ color:'white' }} href="/addblog"><h1>Buy A Blog</h1></Link></Menu.Item>
             <Menu.Item as='a'>Company</Menu.Item>
             <Menu.Item as='a'>Careers</Menu.Item>
             <Menu.Item as='a'>Log in</Menu.Item>
