@@ -5,9 +5,14 @@ class QRScan extends Component {
   state = {
     result: 'No result'
   }
- 
+  componentDidMount() {
+
+    
+
+  }
   handleScan = data => {
     if (data) {
+      window.location = `/addblog?id=${data}`;
       this.setState({
         result: data
       })
